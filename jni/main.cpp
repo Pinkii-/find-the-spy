@@ -7,6 +7,7 @@
 #include <SFML/Graphics.hpp>
 #include "KillingSpree.hpp"
 #include "Timer.hpp"
+#include "ReshufleScreen.hpp"
 
 int main(int argc, const char* argv[]){
     sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yuegal");
@@ -42,7 +43,7 @@ int main(int argc, const char* argv[]){
         
 //         DeathScreen deathScreen;
 
-//         ReshufleScreen reshufleScreen;
+        ReshuffleScreen reshuffleScreen;
         
         bool playing = true;
         
@@ -82,7 +83,7 @@ int main(int argc, const char* argv[]){
 // --playerAmount;
               //STORE THE DEAD MAN
               
-//               reshufleScreen.show();
+              reshuffleScreen.run(&window);
 
         }
         
