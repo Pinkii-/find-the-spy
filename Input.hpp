@@ -11,8 +11,8 @@ public:
 #else
     sf::Vector2i localPosition = sf::Touch::getPosition(0, window);
 #endif
-    x = localPosition.x;
-    y = localPosition.y;
+    pos.x = localPosition.x;
+    pos.y = localPosition.y;
     isClick_before = isClick;
 #ifdef __linux__
     isClick = sf::Mouse::isButtonPressed(sf::Mouse::Button::Left);
@@ -21,9 +21,8 @@ public:
 #endif
     isClick_thisframe = isClick && !isClick_before;
   }
-private:
-  static int x;
-  static int y;
+
+  static sf::Vector2i pos;
   static bool isClick_before;
   static bool isClick;
   static bool isClick_thisframe;
