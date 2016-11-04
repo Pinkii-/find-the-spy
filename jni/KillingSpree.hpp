@@ -69,12 +69,24 @@ public:
             
             Input::update(*window);            
             
-            if(Input::isClick && s.getGlobalBounds().contains(Input::pos)){
+            for(size_t i = 0; i < players; ++i){
+                if(Input::isClick && players[i].getGlobalBounds().contains(Input::pos)){
+                    players[i].setRotation(12);
+                }
+                else {
+                    players[i].setRotation(0);
+                }
+                if(!Input::isClick && Input::wasClicked && players[i].getGlobalBounds().contains(Input::pos)){
+                    return i;
+                }   
+            }
+            
+/*            if(Input::isClick && s.getGlobalBounds().contains(Input::pos)){
                     s.setTexture(Resources::clickedOKButton);
             }
             if(!Input::isClick && Input::wasClicked && s.getGlobalBounds().contains(Input::pos)){
                 return -1;
-            }
+            }*/
             if(time >= 220) return -1;
             
             window->clear();
