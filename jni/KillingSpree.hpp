@@ -1,8 +1,10 @@
-#ifndef TIMER_H
-#define TIMER_H
+#ifndef KILLINGSPREE_H
+#define KILLINGSPREE_H
 
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+#include "Resources.hpp"
+#include "Input.hpp"
 
 class KillingSpree {
 
@@ -24,7 +26,7 @@ public:
         
         int time = 0;
         
-        open = true;
+        bool open = true;
         
         float dt = 0;
         sf::Clock deltaClock;
@@ -33,8 +35,8 @@ public:
         s.setTexture(Resources::OKButton);
         
         std::vector<sf::Sprite> players;
-        for(size_t i = 0; i < players; ++i){
-            if(! players[i].setTexture(Resources::PlayerTextures[i]) ) std::cout << "failed load on player: " << i << std::endl;
+        for(size_t i = 0; i < players.size(); ++i){
+            players[i].setTexture(Resources::PlayerTextures[i]);
         }
         
         sf::Vector2f center(window->getSize().x/2, window->getSize().y/2);
@@ -42,9 +44,9 @@ public:
         
         float angle = 360/players.size();
         
-        for(size_t i = 0; i < players; ++i){
+        for(size_t i = 0; i < players.size(); ++i){
             float concreteAngle = angle*i;
-            players[i].setScale((window->getSize().x/4)/t.getGlobalBounds().width, (window->getSize().x/4)/t.getGlobalBounds().width);
+            players[i].setScale((window->getSize().x/4)/players[i].getGlobalBounds().width, (window->getSize().x/4)/players[i].getGlobalBounds().width);
             players[i].setPosition(window->getSize().x/2 + std::cos(concreteAngle)*radi, window->getSize().y/2 + std::sin(concreteAngle)*radi);
         }
         
@@ -60,7 +62,7 @@ public:
                 switch (event.type) {
                 case sf::Event::Closed:
                     window->close();
-                    return;
+                    return -1;
                     break;
                 default:
                     break;
@@ -69,28 +71,28 @@ public:
             
             Input::update(*window);            
             
-            for(size_t i = 0; i < players; ++i){
-                if(Input::isClick && players[i].getGlobalBounds().contains(Input::pos)){
+            for(size_t i = 0; i < players.size(); ++i){
+                if(Input::isClicked && players[i].getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
                     players[i].setRotation(12);
                 }
                 else {
                     players[i].setRotation(0);
                 }
-                if(!Input::isClick && Input::wasClicked && players[i].getGlobalBounds().contains(Input::pos)){
+                if(!Input::isClicked && Input::wasClicked && players[i].getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
                     return i;
                 }   
             }
             
-/*            if(Input::isClick && s.getGlobalBounds().contains(Input::pos)){
+/*            if(Input::isClicked && s.getGlobalBounds().contains(Input::pos)){
                     s.setTexture(Resources::clickedOKButton);
             }
-            if(!Input::isClick && Input::wasClicked && s.getGlobalBounds().contains(Input::pos)){
+            if(!Input::isClicked && Input::wasClicked && s.getGlobalBounds().contains(Input::pos)){
                 return -1;
             }*/
             if(time >= 220) return -1;
             
             window->clear();
-            for(size_t i = 0; i < players; ++i){
+            for(size_t i = 0; i < players.size(); ++i){
                 window->draw(players[i]);
             }
             window->draw(s);

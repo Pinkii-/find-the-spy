@@ -3,6 +3,7 @@
 
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+#include "Resources.hpp"
 
 class Timer {
 
@@ -28,7 +29,7 @@ public:
         
         int time = tim;
         
-        open = true;
+        bool open = true;
         
         float dt = 0;
         sf::Clock deltaClock;
@@ -58,18 +59,18 @@ public:
                 }
             }
             
-            t.setText(myToString(min)+":"+myToString(sec));
+            t.setString(myToString(min)+":"+myToString(sec));
 
             t.scale(window->getSize().x/t.getGlobalBounds().width, window->getSize().x/t.getGlobalBounds().width);
             t.setPosition(window->getSize().x/2 - t.getGlobalBounds().width/2, window->getSize().y/2 - t.getGlobalBounds().height/2);
             
             Input::update(*window);
             
-            if(Input::isClick && s.getGlobalBounds().contains(Input::pos)){
-                    s.setTexture(Resources::clickedOKButton);
+            if(Input::isClicked && s.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
+                    s.setTexture(Resources::PressedOKButton);
             }
             
-            if(!Input::isClick && Input::wasClicked && s.getGlobalBounds().contains(Input::pos)){
+            if(!Input::isClicked && Input::wasClicked && s.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
                     return;
             }
             
