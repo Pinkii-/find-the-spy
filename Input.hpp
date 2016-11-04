@@ -7,25 +7,25 @@ class Input {
 public:
   void update(sf::RenderWindow& window) {
 #ifdef __linux__
-    sf::Vector2i localPosition = sf::Mouse::getPosition(window);
+    pos = sf::Mouse::getPosition(window);
 #else
-    sf::Vector2i localPosition = sf::Touch::getPosition(0, window);
+    pos = sf::Touch::getPosition(0, window);
 #endif
-    pos.x = localPosition.x;
-    pos.y = localPosition.y;
-    isClick_before = isClick;
+    wasClicked = isClicked;
 #ifdef __linux__
-    isClick = sf::Mouse::isButtonPressed(sf::Mouse::Button::Left);
+    isClicked = sf::Mouse::isButtonPressed(sf::Mouse::Button::Left);
 #else
-    isClick = sf::Touch::isDown(0);
+    isClicked = sf::Touch::isDown(0);
 #endif
-    isClick_thisframe = isClick && !isClick_before;
+    cryMeARivered = isClicked && !wasClicked;
+    hasBeenReleased = !isClicked && wasClicked;
   }
 
   static sf::Vector2i pos;
-  static bool isClick_before;
-  static bool isClick;
-  static bool isClick_thisframe;
+  static bool wasClicked;
+  static bool isClicked;
+  static bool cryMeARivered;
+  static bool hasBeenReleased;
 };
 
 #endif
