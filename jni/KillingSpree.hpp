@@ -4,47 +4,56 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
-class Timer {
+class KillingSpree {
 
 private:
-    sf::Text t;
-
-    int min;
-    int sec;
     
 public:
-    Timer() {
-        min = 3;
-        sec = 1;
+    KillingSpree() {
+        
     }
      
-    ~Timer(){}
+    ~KillingSpree(){}
     
     std::string myToString(int i){
         if(i <= 9) return "0"+std::to_string(i);
         else return std::to_string(i);
     }
-    void run(sf::RenderWindow* window, int tim){
+    
+    int run(sf::RenderWindow* window, int tim){
         
-        int time = tim;
+        int time = 0;
         
         open = true;
         
         float dt = 0;
         sf::Clock deltaClock;
         
-        t.setFont(Resources::font);
-        
         sf::Sprite s;
         s.setTexture(Resources::OKButton);
+        
+        std::vector<sf::Sprite> players;
+        for(size_t i = 0; i < players; ++i){
+            if(! players[i].setTexture(Resources::PlayerTextures[i]) ) std::cout << "failed load on player: " << i << std::endl;
+        }
+        
+        sf::Vector2f center(window->getSize().x/2, window->getSize().y/2);
+        float radi = window->getSize().x/4;
+        
+        float angle = 360/players.size();
+        
+        for(size_t i = 0; i < players; ++i){
+            float concreteAngle = angle*i;
+            players[i].setScale((window->getSize().x/4)/t.getGlobalBounds().width, (window->getSize().x/4)/t.getGlobalBounds().width);
+            players[i].setPosition(window->getSize().x/2 + std::cos(concreteAngle)*radi, window->getSize().y/2 + std::sin(concreteAngle)*radi);
+        }
+        
         
         while(open){
             
             dt = deltaClock.restart().asSeconds();
             
-            time -= dt;
-            min = time/60;
-            sec = time-(min*60);
+            time += dt;
             
             sf::Event event;
             while (window->pollEvent(event)) {
@@ -58,23 +67,20 @@ public:
                 }
             }
             
-            t.setText(myToString(min)+":"+myToString(sec));
-
-            t.scale(window->getSize().x/t.getGlobalBounds().width, window->getSize().x/t.getGlobalBounds().width);
-            t.setPosition(window->getSize().x/2 - t.getGlobalBounds().width/2, window->getSize().y/2 - t.getGlobalBounds().height/2);
-            
-            Input::update(*window);
+            Input::update(*window);            
             
             if(Input::isClick && s.getGlobalBounds().contains(Input::pos)){
                     s.setTexture(Resources::clickedOKButton);
             }
-            
             if(!Input::isClick && Input::wasClicked && s.getGlobalBounds().contains(Input::pos)){
-                    return;
+                return -1;
             }
+            if(time >= 220) return -1;
             
             window->clear();
-            window->draw(t);            
+            for(size_t i = 0; i < players; ++i){
+                window->draw(players[i]);
+            }
             window->draw(s);
             window->display();
              

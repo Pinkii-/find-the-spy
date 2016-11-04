@@ -6,6 +6,8 @@ sf::Font Resources::font;
 sf::Texture Resources::OKButton;
 sf::Texture Resources::PressedOKButton;
 
+std::vector<sf::Texture> Resources::PlayerTextures;
+
 void Resources::load() {
     //...loadFromFile();
     if (!font.loadFromFile("res/fonts/font.otf")) std::cout << "penefont" << std::endl;

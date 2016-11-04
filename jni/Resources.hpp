@@ -12,6 +12,8 @@ public:
     static sf::Font font;
     static sf::Texture OKButton;
     static sf::Texture PressedOKButton;
+    
+    static std::vector<sf::Texture> PlayerTextures;
     //static sf::Texture ...
 private:
 
