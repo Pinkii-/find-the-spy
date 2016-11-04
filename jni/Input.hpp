@@ -5,7 +5,7 @@
 
 class Input {
 public:
-  void update(sf::RenderWindow& window) {
+  static void update(sf::RenderWindow& window) {
 #ifdef __linux__
     pos = sf::Mouse::getPosition(window);
 #else
@@ -27,5 +27,11 @@ public:
   static bool cryMeARivered;
   static bool hasBeenReleased;
 };
+
+sf::Vector2i Input::pos;
+bool Input::wasClicked;
+bool Input::isClicked;
+bool Input::cryMeARivered;
+bool Input::hasBeenReleased;
 
 #endif
