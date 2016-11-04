@@ -80,8 +80,8 @@ int main(int argc, const char* argv[]){
 //             deathScreen.show(mostVoted);
             
 //            Resources::players.erase(Resources::players.begin()+mostVoted);
-// --playerAmount;
-              //STORE THE DEAD MAN
+//               --playerAmount;
+              //STORE THE DEAD MAN (?)
               
               reshuffleScreen.run(&window);
 
