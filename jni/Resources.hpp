@@ -24,7 +24,10 @@ public:
     
     static sf::Texture Spy;
     
+    static std::vector<int> PlayerRol;
+    static std::vector<int> PlayerIndex;
     static std::vector<sf::Texture> PlayerTextures;
+    
     //static sf::Texture ...
 private:
 

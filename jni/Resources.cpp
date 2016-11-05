@@ -17,6 +17,8 @@ sf::Texture Resources::RightArrow;
     
 sf::Texture Resources::Spy;
 
+std::vector<int> Resources::PlayerRol;
+std::vector<int> Resources::PlayerIndex;
 std::vector<sf::Texture> Resources::PlayerTextures;
 
 void Resources::load() {

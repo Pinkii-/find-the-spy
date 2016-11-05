@@ -34,9 +34,9 @@ public:
         sf::Sprite s;
         s.setTexture(Resources::OKButton);
         
-        std::vector<sf::Sprite> players(Resources::PlayerTextures.size());
+        std::vector<sf::Sprite> players(Resources::PlayerIndex.size());
         for(size_t i = 0; i < players.size(); ++i){
-            players[i].setTexture(Resources::PlayerTextures[i]);
+            players[i].setTexture(Resources::PlayerTextures[Resources::PlayerIndex[i]]);
         }
         
         sf::Vector2f center(window->getSize().x/2, window->getSize().y/2);

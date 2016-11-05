@@ -37,15 +37,15 @@ public:
         sf::Vector2f center(window->getSize().x/2, window->getSize().y/2);
         float radi = window->getSize().x/4;
         
-        std::vector<sf::Sprite> oldPlayerPositions(Resources::PlayerTextures.size());
+        std::vector<sf::Sprite> oldPlayerPositions(Resources::PlayerIndex.size());
         for(size_t i = 0; i < oldPlayerPositions.size(); ++i){
-            oldPlayerPositions[i].setTexture(Resources::PlayerTextures[i]);
+            oldPlayerPositions[i].setTexture(Resources::PlayerTextures[Resources::PlayerIndex[i]]);
         }
         
-        std::random_shuffle(Resources::PlayerTextures.begin(), Resources::PlayerTextures.end());
-        std::vector<sf::Sprite> players(Resources::PlayerTextures.size());
+        std::random_shuffle(Resources::PlayerIndex.begin(), Resources::PlayerIndex.end());
+        std::vector<sf::Sprite> players(Resources::PlayerIndex.size());
         for(size_t i = 0; i < players.size(); ++i){
-            players[i].setTexture(Resources::PlayerTextures[i]);
+            players[i].setTexture(Resources::PlayerTextures[Resources::PlayerIndex[i]]);
         }
         
         float angle = 360/players.size();
@@ -79,6 +79,9 @@ public:
             
             if(Input::isClicked && s.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
                 s.setTexture(Resources::PressedOKButton);
+            }
+            else {
+                s.setTexture(Resources::OKButton);
             }
             if(!Input::isClicked && Input::wasClicked && s.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
                 return;
