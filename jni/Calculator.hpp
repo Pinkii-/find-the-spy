@@ -47,7 +47,7 @@ public:
       _buttons[i].setOutlineColor(sf::Color::Black);
     }
     if (Input::isClicked || Input::hasBeenReleased) {
-      sf::Vector2f localPosition = sf::Vector2f(Input::pos) - getPosition();
+      sf::Vector2f localPosition = sf::Vector2f(Input::pos) - getPosition() + getOrigin();
       localPosition.x /= getScale().x;
       localPosition.y /= getScale().y;
       if (sf::FloatRect(0,0,SIZEX*3, SIZEY*4 + 40).contains(localPosition)) {

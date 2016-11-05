@@ -10,6 +10,7 @@
 #include "ReshufleScreen.hpp"
 #include "DecissionScreen.hpp"
 #include "RiperinoScreen.hpp"
+#include "SignInScreen.hpp"
 
 int main(int argc, const char* argv[]){
     sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yuegal");
@@ -28,44 +29,44 @@ int main(int argc, const char* argv[]){
             }
         }
 
-        int playerAmount = 0;
+        int playerAmount = 1;
         //InitialScreen initialScreen;
         //playerAmount = initialScreen.run();
-    
-//         SignInScreen signInScreen;
-//         for(int i = 0; i < playerAmount; ++i){
-//             signInScreen.initializePlayer(i);
-//         }
-        
+
+        SignInScreen signInScreen;
+        for(int i = 0; i < playerAmount; ++i){
+            signInScreen.initializePlayer(window, i);
+        }
+
 //         AutenticateScreen autenticateScreen;
-        
+
         DecissionScreen decissionScreen;
 
         Timer timerScreen;
         KillingSpree killingSpreeScreen;
-        
+
         RiperinoScreen riperinoScreen;
 
         ReshuffleScreen reshuffleScreen;
-        
+
         bool playing = true;
-        
+
         while(playing){
-            
+
             for(int i = 0; i < playerAmount; ++i){
 //                 autenticateScreen.autenticate(i);
                 decissionScreen.run(&window, i);
             }
-            
+
             timerScreen.run(&window, 3*60);
-            
+
             std::vector<int> kills(playerAmount,0);
             for(int i = 0; i < playerAmount; ++i){
 //                 autenticateScreen.autenticate(i);
                 int victim = killingSpreeScreen.run(&window, i);
                 if(victim >= 0) ++kills[victim];
             }
-            
+
             int mostVoted = 0;
             int maxVotes = 0;
             for(int i = 0; i < playerAmount; ++i){
@@ -75,17 +76,18 @@ int main(int argc, const char* argv[]){
                 }
                 //TODO: BE FAIR
                 if(kills[i] == maxVotes && rand()%2 == 0){
-                    mostVoted = i;                
+                    mostVoted = i;
                     maxVotes = kills[i];
                 }
-            }            
-            
+            }
+
             riperinoScreen.run(&window,mostVoted);
-            
+
             Resources::PlayerIndex.erase(Resources::PlayerIndex.begin() + mostVoted);
             --playerAmount;
 
             reshuffleScreen.run(&window);
+
         }
     }
 }
