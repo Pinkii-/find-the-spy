@@ -7,6 +7,8 @@
 #include <SFML/Graphics.hpp>
 #include "KillingSpree.hpp"
 #include "Timer.hpp"
+#include "ReshufleScreen.hpp"
+#include "DecissionScreen.hpp"
 
 int main(int argc, const char* argv[]){
     sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yuegal");
@@ -35,23 +37,24 @@ int main(int argc, const char* argv[]){
 //         }
         
 //         AutenticateScreen autenticateScreen;
-//         DecisionScreen decisionScreen;
+        
+        DecissionScreen decissionScreen;
 
         Timer timerScreen;
         KillingSpree killingSpreeScreen;
         
 //         DeathScreen deathScreen;
 
-//         ReshufleScreen reshufleScreen;
+        ReshuffleScreen reshuffleScreen;
         
         bool playing = true;
         
         while(playing){
             
-//             for(int i = 0; i < playerAmount; ++i){
+            for(int i = 0; i < playerAmount; ++i){
 //                 autenticateScreen.autenticate(i);
-//                 decisionScreen.run(i);
-//             }
+                decissionScreen.run(&window, i);
+            }
             
             timerScreen.run(&window, 3*60);
             
@@ -78,13 +81,10 @@ int main(int argc, const char* argv[]){
             
 //             deathScreen.show(mostVoted);
             
-//            Resources::players.erase(Resources::players.begin()+mostVoted);
-// --playerAmount;
-              //STORE THE DEAD MAN
+              Resources::PlayerIndex.erase(Resources::PlayerIndex.begin() + mostVoted);
+              --playerAmount;
               
-//               reshufleScreen.show();
-
+              reshuffleScreen.run(&window);
         }
-        
     }
 }
