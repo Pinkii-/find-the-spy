@@ -41,19 +41,19 @@ public:
       Input::update(window);
       calc.update(deltaTime);
       drawer.update(deltaTime);
-      
+
       nextButton.scale(window.getSize().x/8/nextButton.getGlobalBounds().width, window.getSize().x/8/nextButton.getGlobalBounds().width);
       nextButton.setPosition(window.getSize().x/2 - nextButton.getGlobalBounds().width/2, window.getSize().y - nextButton.getGlobalBounds().height);
-      
+
         if(Input::isClicked && nextButton.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
                 nextButton.setTexture(res.PressedOKButton);
         }
         else {
-            nextButton.setTexture(res.OKButton);    
+            nextButton.setTexture(res.OKButton);
         }
         if(!Input::isClicked && Input::wasClicked && nextButton.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
             if(calc._passwd.getString() != ""){
-                res.PlayerTextures.push_back(drawer._texture);    
+                res.PlayerTextures.push_back(drawer.getPlayerIcon());    
                 res.Passwords.push_back(calc._passwd.getString());
                 std::cout << std::string(calc._passwd.getString()) << std::endl;
                 return;

@@ -12,7 +12,7 @@ class Drawer : public sf::Drawable, public sf::Transformable {
 public:
   Drawer(sf::Color color) : _color(color) {
     _frame.setSize({FRAMESIZEX, FRAMESIZEY});
-    _frame.setFillColor(sf::Color::Transparent);
+    _frame.setFillColor(sf::Color::Black);
     _frame.setOutlineColor(_color);
     _frame.setOutlineThickness(10);
 
@@ -34,8 +34,9 @@ public:
 
     // Texture shiet
     _renderTexture.create(FRAMESIZEX, FRAMESIZEY);
-
-
+    _renderTexture.clear(sf::Color::Black);
+    _renderTexture.display();
+    _texture = _renderTexture.getTexture();
   }
 
   void update(float) {
@@ -47,7 +48,7 @@ public:
         _brush.setPosition(localPosition.x, localPosition.y);
 
         sf::Sprite last(_texture);
-        _renderTexture.clear(sf::Color::White);
+        _renderTexture.clear(sf::Color::Black);
 
 
         _renderTexture.draw(last);
@@ -59,6 +60,18 @@ public:
     }
   }
 
+
+  sf::Texture getPlayerIcon() {
+    _renderTexture.create(FRAMESIZEX+20, FRAMESIZEY+20);
+    sf::Sprite icon(_texture);
+    icon.setPosition(10, 10);
+    _frame.setPosition(10,10);
+    _renderTexture.clear(sf::Color::Black);
+    _renderTexture.draw(icon);
+    _renderTexture.draw(_frame);
+    _renderTexture.display();
+    return _renderTexture.getTexture();
+  }
 
 
   sf::Texture _texture;
