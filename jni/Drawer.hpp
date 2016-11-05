@@ -40,8 +40,10 @@ public:
 
   void update(float) {
     if (Input::isClicked) {
-      sf::Vector2i localPosition = Input::pos - sf::Vector2i(getPosition());
-      if (sf::IntRect(0,0,FRAMESIZEX, FRAMESIZEY).contains(localPosition)) {
+      sf::Vector2f localPosition = sf::Vector2f(Input::pos) - getPosition();
+      localPosition.x /= getScale().x;
+      localPosition.y /= getScale().y;
+      if (sf::FloatRect(0,0,FRAMESIZEX, FRAMESIZEY).contains(localPosition)) {
         _brush.setPosition(localPosition.x, localPosition.y);
 
         sf::Sprite last(_texture);
@@ -70,7 +72,8 @@ private:
   sf::Texture _texture;
 
   virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const {
-    states.transform.translate(getPosition());
+    states.transform.translate(getPosition()-getOrigin());
+    states.transform.scale(getScale(), getOrigin());
 
     target.draw(_frame, states);
 
