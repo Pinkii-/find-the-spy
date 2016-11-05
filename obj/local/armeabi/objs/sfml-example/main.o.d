@@ -1,4 +1,5 @@
-obj/local/armeabi/objs/sfml-example/main.o: jni/main.cpp \
+/home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/obj/local/armeabi/objs/sfml-example/main.o: \
+ /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/main.cpp \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/time.h \
  /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/time.h \
  /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/sys/cdefs.h \
@@ -177,7 +178,8 @@ obj/local/armeabi/objs/sfml-example/main.o: jni/main.cpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Shader.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Sprite.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Text.hpp \
- jni/KillingSpree.hpp jni/Resources.hpp \
+ /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/KillingSpree.hpp \
+ /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Resources.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Audio.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/InputSoundFile.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/Export.hpp \
@@ -198,12 +200,16 @@ obj/local/armeabi/objs/sfml-example/main.o: jni/main.cpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundFileWriter.hpp \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/iostream \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/istream \
- jni/Input.hpp \
+ /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Input.hpp \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/math.h \
  /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/math.h \
- jni/Timer.hpp jni/ReshufleScreen.hpp jni/DecissionScreen.hpp \
- jni/RiperinoScreen.hpp jni/SignInScreen.hpp jni/Drawer.hpp \
- jni/Calculator.hpp
+ /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Timer.hpp \
+ /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/ReshufleScreen.hpp \
+ /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/DecissionScreen.hpp \
+ /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/RiperinoScreen.hpp \
+ /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/SignInScreen.hpp \
+ /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Drawer.hpp \
+ /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Calculator.hpp
 
 /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/time.h:
 
@@ -561,9 +567,9 @@ obj/local/armeabi/objs/sfml-example/main.o: jni/main.cpp \
 
 /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Text.hpp:
 
-jni/KillingSpree.hpp:
+/home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/KillingSpree.hpp:
 
-jni/Resources.hpp:
+/home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Resources.hpp:
 
 /home/kaito/android/ndk/sources/sfml/include/SFML/Audio.hpp:
 
@@ -605,22 +611,22 @@ jni/Resources.hpp:
 
 /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/istream:
 
-jni/Input.hpp:
+/home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Input.hpp:
 
 /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/math.h:
 
 /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/math.h:
 
-jni/Timer.hpp:
+/home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Timer.hpp:
 
-jni/ReshufleScreen.hpp:
+/home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/ReshufleScreen.hpp:
 
-jni/DecissionScreen.hpp:
+/home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/DecissionScreen.hpp:
 
-jni/RiperinoScreen.hpp:
+/home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/RiperinoScreen.hpp:
 
-jni/SignInScreen.hpp:
+/home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/SignInScreen.hpp:
 
-jni/Drawer.hpp:
+/home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Drawer.hpp:
 
-jni/Calculator.hpp:
+/home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Calculator.hpp:

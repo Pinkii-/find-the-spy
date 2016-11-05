@@ -81,8 +81,13 @@ public:
         
         for(size_t i = 0; i < players.size(); ++i){
             float concreteAngle = angle*i;
-            players[i].setScale((window->getSize().x/5)/players[i].getGlobalBounds().width, (window->getSize().x/5)/players[i].getGlobalBounds().width);
-            players[i].setPosition(window->getSize().x/2 + cosinus(concreteAngle*0.0174532925,0.001)*radi, window->getSize().y/2 + sinus(concreteAngle*0.0174532925)*radi);
+            players[i].setScale(
+                (window->getSize().x/5)/players[i].getGlobalBounds().width, 
+                (window->getSize().x/5)/players[i].getGlobalBounds().width);
+            
+            players[i].setPosition(
+                window->getSize().x/2 + cosinus(concreteAngle*0.0174532925,0.001)*radi, 
+                window->getSize().y/2 + sinus(concreteAngle*0.0174532925)*radi);
         }
         
         
@@ -122,6 +127,9 @@ public:
             if(time >= 1200) return;
             
             window->clear();
+            for(size_t i = 0; i < players.size(); ++i){
+                window->draw(players[i]);
+            }
             window->draw(s);
             window->display();
              
