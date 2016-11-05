@@ -18,7 +18,7 @@ class Calculator : public sf::Drawable, public sf::Transformable {
 public:
   Calculator(Resources& res) {
     _passwd.setFont(res.font);
-    _passwd.setColor(sf::Color::Black);
+    _passwd.setColor(sf::Color::White);
     //_passwd.setOutlineColor(sf::Color::White);
     //_passwd.setOutlineThickness(1);
     for (int i = 0; i < 10; ++i) {
@@ -28,6 +28,7 @@ public:
       int y = (i)/3 * SIZEY;
       _numbers[i].setOrigin(16, 22);
       _numbers[i].setPosition(x + SIZEX/2.f, y+SIZEY/2.f + 40);
+      _numbers[i].setColor(sf::Color::Black);
       //_numbers[i].setOutlineColor(sf::Color::Black);
       //_numbers[i].setOutlineThickness(3);
       _buttons[i].setPosition(x, y + 40);

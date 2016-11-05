@@ -45,7 +45,6 @@ public:
       nextButton.scale(window.getSize().x/8/nextButton.getGlobalBounds().width, window.getSize().x/8/nextButton.getGlobalBounds().width);
       nextButton.setPosition(window.getSize().x/2 - nextButton.getGlobalBounds().width/2, window.getSize().y - nextButton.getGlobalBounds().height);
       
-
         if(Input::isClicked && nextButton.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
                 nextButton.setTexture(res.PressedOKButton);
         }
