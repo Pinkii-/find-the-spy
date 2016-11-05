@@ -61,6 +61,7 @@ public:
 
 
 
+  sf::Texture _texture;
 private:
   sf::Color _color;
 
@@ -69,7 +70,6 @@ private:
 
   sf::VertexArray _vertices;
   sf::RenderTexture _renderTexture;
-  sf::Texture _texture;
 
   virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const {
     states.transform.translate(getPosition()-getOrigin());

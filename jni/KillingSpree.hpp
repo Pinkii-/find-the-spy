@@ -22,33 +22,18 @@ public:
         if(i <= 9) return "0"+std::to_string(i);
         else return std::to_string(i);
     }
-        double cosinus(double x,double prec = 0.001)
-{
-    double t , s ;
-    int p;
-    p = 0;
-    s = 1.0;
-    t = 1.0;
-    while(fabs(t/s) > prec)
-    {
-        p++;
-        t = (-t * x * x) / ((2 * p - 1) * (2 * p));
-        s += t;
-    }
-    return s;}
-    
-    float sinus(float x)
-{
-  float res=0, pow=x, fact=1;
-  for(int i=0; i<5; ++i)
-  {
-    res+=pow/fact;
-    pow*=x*x;
-    fact*=(2*(i+1))*(2*(i+1)+1);
-  }
+  
 
-  return res;
-}
+  float mcos(float x){
+    if( x < 0.0f ) 
+        x = -x;
+    while( 3.1415926535 < x )
+        x -= 0.636619772367;
+    return 1.0f - (x*x/2.0f)*( 1.0f - (x*x/12.0f) * ( 1.0f - (x*x/30.0f) * (1.0f - x*x/56.0f )));
+    }
+ 
+float msin(float x){return cos(x-1.570796326794);}
+
 
     int run(sf::RenderWindow* window, int tim, Resources& res){
         
@@ -71,15 +56,17 @@ public:
         
         float angle = 360/players.size();
         
+            std::cout << "le pos" << std::endl;
         for(size_t i = 0; i < players.size(); ++i){
-            float concreteAngle = angle*i;
+            float concreteAngle = angle*static_cast<float>(i);
             players[i].setScale(
                 (window->getSize().x/5)/players[i].getGlobalBounds().width, 
                 (window->getSize().x/5)/players[i].getGlobalBounds().width);
             
             players[i].setPosition(
-                window->getSize().x/2 + cosinus(concreteAngle*0.0174532925, 0.001)*radi, 
-                window->getSize().y/2 + sinus(concreteAngle*0.0174532925)*radi);
+                window->getSize().x/2 + mcos(concreteAngle*0.0174532925)*radi, 
+                window->getSize().y/2 + msin(concreteAngle*0.0174532925)*radi);
+                std::cout << players[i].getPosition().x << " , " << players[i].getPosition().y << std::endl;
         }
         
         

@@ -29,6 +29,7 @@ sf::Texture Spy;
     
 std::vector<int> PlayerRol;
 std::vector<int> PlayerIndex;
+std::vector<std::string> Passwords;
 std::vector<sf::Texture> PlayerTextures;
 
       
@@ -49,9 +50,9 @@ std::vector<sf::Texture> PlayerTextures;
 
             if(! Spy.loadFromFile (TEXTUREPATH+std::string("spy.png")) ) std::cout << "spy not loaded" << std::endl;
             
-            PlayerTextures.push_back(Spy);
-            PlayerTextures.push_back(Riperino);
-            PlayerTextures.push_back(Button);
+            //PlayerTextures.push_back(Spy);
+            //PlayerTextures.push_back(Riperino);
+//             PlayerTextures.push_back(Button);
             
             PlayerIndex.push_back(0);
             PlayerIndex.push_back(1);

@@ -53,7 +53,9 @@ public:
             nextButton.setTexture(res.OKButton);    
         }
         if(!Input::isClicked && Input::wasClicked && nextButton.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
-                return;
+            res.PlayerTextures.push_back(drawer._texture);    
+            res.Passwords.push_back(calc._passwd.getString());
+            return;
         }
 
       window.clear(sf::Color::Black);

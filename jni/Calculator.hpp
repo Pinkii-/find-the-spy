@@ -75,8 +75,8 @@ public:
   }
 
 
-private:
   sf::Text _passwd;
+private:
   sf::Text _numbers[10];
   sf::RectangleShape _buttons[10];
 

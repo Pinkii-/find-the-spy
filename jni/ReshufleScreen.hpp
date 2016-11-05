@@ -23,33 +23,18 @@ public:
         if(i <= 9) return "0"+std::to_string(i);
         else return std::to_string(i);
     }
-    double cosinus(double x,double prec)
-{
-    double t , s ;
-    int p;
-    p = 0;
-    s = 1.0;
-    t = 1.0;
-    while(fabs(t/s) > prec)
-    {
-        p++;
-        t = (-t * x * x) / ((2 * p - 1) * (2 * p));
-        s += t;
-    }
-    return s;}
-    
-    float sinus(float x)
-{
-  float res=0, pow=x, fact=1;
-  for(int i=0; i<5; ++i)
-  {
-    res+=pow/fact;
-    pow*=x*x;
-    fact*=(2*(i+1))*(2*(i+1)+1);
-  }
 
-  return res;
-}
+    float mcos(float x){
+    if( x < 0.0f ) 
+        x = -x;
+    while( 3.1415926535 < x )
+        x -= 0.636619772367;
+    return 1.0f - (x*x/2.0f)*( 1.0f - (x*x/12.0f) * ( 1.0f - (x*x/30.0f) * (1.0f - x*x/56.0f )));
+    }
+ 
+    float msin(float x){return cos(x-1.570796326794);}
+
+
     
     void run(sf::RenderWindow* window, Resources& res){
         
@@ -86,8 +71,8 @@ public:
                 (window->getSize().x/5)/players[i].getGlobalBounds().width);
             
             players[i].setPosition(
-                window->getSize().x/2 + cosinus(concreteAngle*0.0174532925,0.001)*radi, 
-                window->getSize().y/2 + sinus(concreteAngle*0.0174532925)*radi);
+                window->getSize().x/2 + mcos(concreteAngle*0.0174532925)*radi, 
+                window->getSize().y/2 + msin(concreteAngle*0.0174532925)*radi);
         }
         
         
@@ -109,7 +94,7 @@ public:
                 }
             }
             
-            s.scale(window->getSize().x/4/s.getGlobalBounds().width, window->getSize().x/4/s.getGlobalBounds().width);
+            s.scale(window->getSize().x/6/s.getGlobalBounds().width, window->getSize().x/6/s.getGlobalBounds().width);
             s.setPosition(window->getSize().x/2 - s.getGlobalBounds().width/2, window->getSize().y - s.getGlobalBounds().height);
             
             Input::update(*window);            
@@ -123,9 +108,7 @@ public:
             if(!Input::isClicked && Input::wasClicked && s.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
                 return;
             }   
-            
-            if(time >= 1200) return;
-            
+                       
             window->clear();
             for(size_t i = 0; i < players.size(); ++i){
                 window->draw(players[i]);
