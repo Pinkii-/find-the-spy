@@ -56,6 +56,7 @@ public:
 
         _renderTexture.display();
         _texture = _renderTexture.getTexture();
+        _sprite.setTexture(_texture);
       }
     }
   }
@@ -82,6 +83,7 @@ private:
   sf::CircleShape _brush;
 
   sf::VertexArray _vertices;
+  sf::Sprite _sprite;
   sf::RenderTexture _renderTexture;
 
   virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -90,8 +92,10 @@ private:
 
     target.draw(_frame, states);
 
-    states.texture = &_texture;
-    target.draw(_vertices, states);
+    // states.texture = &_texture;
+    // target.draw(_vertices, states)
+
+    target.draw(_sprite, states);
   }
 
 };
