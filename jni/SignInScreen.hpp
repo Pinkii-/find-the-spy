@@ -7,14 +7,14 @@
 
 class SignInScreen {
 public:
-  void initializePlayer(sf::RenderWindow& window, int index) {
+  void initializePlayer(sf::RenderWindow& window, int index, Resources& res) {
     float offset = 40;
 
     Drawer drawer(_colors[index]);
     drawer.setPosition(window.getSize().x/2, offset);
     drawer.setOrigin(100, 0);
 
-    Calculator calc;
+    Calculator calc(res);
     calc.setPosition(window.getSize().x/2, FRAMESIZEY + offset*2.5);
     calc.setOrigin(SIZEX*1.5, 0);
 

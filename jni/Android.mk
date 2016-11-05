@@ -5,6 +5,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE    := sfml-example
 
 LOCAL_SRC_FILES := main.cpp
+LOCAL_SRC_FILES += Resources.cpp
 
 LOCAL_SHARED_LIBRARIES := sfml-system
 LOCAL_SHARED_LIBRARIES += sfml-window

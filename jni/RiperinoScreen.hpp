@@ -14,7 +14,7 @@ public:
      
     ~RiperinoScreen(){}
     
-    void run(sf::RenderWindow* window, int player){
+    void run(sf::RenderWindow* window, int player, Resources& res){
         
         int time = 0;
         
@@ -24,13 +24,13 @@ public:
         sf::Clock deltaClock;
         
         sf::Sprite s;
-        s.setTexture(Resources::OKButton);
+        s.setTexture(res.OKButton);
 
         sf::Sprite avatar;
-        avatar.setTexture(Resources::PlayerTextures[Resources::PlayerIndex[player]]);
+        avatar.setTexture(res.PlayerTextures[res.PlayerIndex[player]]);
             
         sf::Sprite bg;
-        bg.setTexture(Resources::Riperino);
+        bg.setTexture(res.Riperino);
         
         while(open){
             
@@ -51,23 +51,23 @@ public:
             }
             
             
-            s.scale(window->getSize().x/s.getGlobalBounds().width, window->getSize().x/s.getGlobalBounds().width);
-            s.setPosition(window->getSize().x/2 - s.getGlobalBounds().width/2, window->getSize().y - s.getGlobalBounds().height/2);
+            s.scale(window->getSize().x/4/s.getGlobalBounds().width, window->getSize().x/4/s.getGlobalBounds().width);
+            s.setPosition(window->getSize().x/2 - s.getGlobalBounds().width/2, window->getSize().y - s.getGlobalBounds().height);
             
             bg.scale(window->getSize().x/bg.getGlobalBounds().width, window->getSize().x/bg.getGlobalBounds().width);
             bg.setPosition(window->getSize().x/2 - bg.getGlobalBounds().width/2, window->getSize().y/2 - bg.getGlobalBounds().height/2);
             
-            avatar.scale(window->getSize().x/avatar.getGlobalBounds().width, window->getSize().x/avatar.getGlobalBounds().width);
+            avatar.scale(window->getSize().x/4/avatar.getGlobalBounds().width, window->getSize().x/4/avatar.getGlobalBounds().width);
             avatar.setPosition(window->getSize().x/2 - avatar.getGlobalBounds().width/2, window->getSize().y/2 - avatar.getGlobalBounds().height/2);
             
             
             Input::update(*window);
             
             if(Input::isClicked && s.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
-                    s.setTexture(Resources::PressedOKButton);
+                    s.setTexture(res.PressedOKButton);
             }
             else {
-                s.setTexture(Resources::OKButton);    
+                s.setTexture(res.OKButton);    
             }
             
             if(!Input::isClicked && Input::wasClicked && s.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){

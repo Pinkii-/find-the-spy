@@ -18,7 +18,11 @@ int main(int argc, const char* argv[]){
     sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yuegal");
     srand (time(NULL));
 
-    Calculator calc;
+    Resources resources;
+    resources.load();
+//    resources.load();
+    
+    Calculator calc(resources);
     calc.setPosition(window.getSize().x/2, 100);
     calc.setOrigin(SIZEX*1.5, 0);
 
@@ -35,27 +39,14 @@ int main(int argc, const char* argv[]){
             }
         }
 
-        Input::update(window);
-        calc.update(deltaTime);
-
-        window.clear(sf::Color::Black);
-
-        window.draw(calc);
-
-        window.display();
-      }
-    }
-  /*
-
-
-        int playerAmount = 1;
+        int playerAmount = resources.PlayerIndex.size();
         //InitialScreen initialScreen;
         //playerAmount = initialScreen.run();
 
-        SignInScreen signInScreen;
-        for(int i = 0; i < playerAmount; ++i){
-            signInScreen.initializePlayer(window, i);
-        }
+//         SignInScreen signInScreen;
+//         for(int i = 0; i < playerAmount; ++i){
+//             signInScreen.initializePlayer(window, i);
+//         }
 
 //         AutenticateScreen autenticateScreen;
 
@@ -74,15 +65,15 @@ int main(int argc, const char* argv[]){
 
             for(int i = 0; i < playerAmount; ++i){
 //                 autenticateScreen.autenticate(i);
-                decissionScreen.run(&window, i);
+                decissionScreen.run(&window, i, resources);
             }
 
-            timerScreen.run(&window, 3*60);
+            timerScreen.run(&window, 3*60, resources);
 
             std::vector<int> kills(playerAmount,0);
             for(int i = 0; i < playerAmount; ++i){
 //                 autenticateScreen.autenticate(i);
-                int victim = killingSpreeScreen.run(&window, i);
+                int victim = killingSpreeScreen.run(&window, i, resources);
                 if(victim >= 0) ++kills[victim];
             }
 
@@ -100,13 +91,12 @@ int main(int argc, const char* argv[]){
                 }
             }
 
-            riperinoScreen.run(&window,mostVoted);
+            riperinoScreen.run(&window,mostVoted, resources);
 
-            Resources::PlayerIndex.erase(Resources::PlayerIndex.begin() + mostVoted);
+            resources.PlayerIndex.erase(resources.PlayerIndex.begin() + mostVoted);
             --playerAmount;
 
-            reshuffleScreen.run(&window);
-
+            reshuffleScreen.run(&window, resources);
         }
     }
-}*/
+}

@@ -25,19 +25,19 @@ public:
         if(i <= 9) return "0"+std::to_string(i);
         else return std::to_string(i);
     }
-    void run(sf::RenderWindow* window, int tim){
+    void run(sf::RenderWindow* window, int tim, Resources& res){
         
-        int time = tim;
+        float time = tim;
         
         bool open = true;
         
         float dt = 0;
         sf::Clock deltaClock;
         
-        t.setFont(Resources::font);
+        t.setFont(res.font);
         
         sf::Sprite s;
-        s.setTexture(Resources::OKButton);
+        s.setTexture(res.OKButton);
         
         while(open){
             
@@ -61,13 +61,16 @@ public:
             
             t.setString(myToString(min)+":"+myToString(sec));
 
-            t.scale(window->getSize().x/t.getGlobalBounds().width, window->getSize().x/t.getGlobalBounds().width);
+            t.scale(window->getSize().x/t.getGlobalBounds().width/2, window->getSize().x/t.getGlobalBounds()/2.width);
             t.setPosition(window->getSize().x/2 - t.getGlobalBounds().width/2, window->getSize().y/2 - t.getGlobalBounds().height/2);
+            
+            s.scale(window->getSize().x/4/s.getGlobalBounds().width, window->getSize().x/4/s.getGlobalBounds().width);
+            s.setPosition(window->getSize().x/2 - s.getGlobalBounds().width/2, window->getSize().y - s.getGlobalBounds().height);
             
             Input::update(*window);
             
             if(Input::isClicked && s.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
-                    s.setTexture(Resources::PressedOKButton);
+                    s.setTexture(res.PressedOKButton);
             }
             
             if(!Input::isClicked && Input::wasClicked && s.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){

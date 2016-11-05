@@ -1,5 +1,4 @@
-/home/kaito/Escriptori/GitProjects/AndroidWhoIsTheMonster/obj/local/armeabi/objs/sfml-example/main.o: \
- /home/kaito/Escriptori/GitProjects/AndroidWhoIsTheMonster/jni/main.cpp \
+obj/local/armeabi/objs/sfml-example/main.o: jni/main.cpp \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/time.h \
  /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/time.h \
  /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/sys/cdefs.h \
@@ -41,7 +40,6 @@
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/string.h \
  /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/string.h \
  /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/malloc.h \
- /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/monetary.h \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/cstdio \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/cwchar \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/cwctype \
@@ -65,6 +63,7 @@
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/tuple \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/cassert \
  /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/assert.h \
+ /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/atomic \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/stdexcept \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/stdlib.h \
  /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/stdlib.h \
@@ -100,6 +99,8 @@
  /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/asm/signal.h \
  /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/asm-generic/signal.h \
  /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/asm/sigcontext.h \
+ /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/sys/ucontext.h \
+ /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/sys/user.h \
  /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/sched.h \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/functional \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/locale.h \
@@ -110,9 +111,11 @@
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/cstdlib \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/nl_types.h \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/bitset \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/System/FileInputStream.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/System/InputStream.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/System/Lock.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/System/NonCopyable.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/System/Lock.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/System/MemoryInputStream.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/System/Mutex.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/System/Sleep.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/System/String.hpp \
@@ -147,39 +150,60 @@
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/BlendMode.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Export.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Color.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Font.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Glyph.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/CircleShape.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Shape.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Drawable.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RenderStates.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Transform.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Rect.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Rect.inl \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Transformable.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/VertexArray.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Vertex.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Color.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/PrimitiveType.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/ConvexShape.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Font.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Glyph.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Texture.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Image.hpp \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/map \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/__tree \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RenderStates.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Transform.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RenderTexture.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RectangleShape.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RenderTarget.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/View.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/PrimitiveType.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Vertex.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RenderTexture.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RenderWindow.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Shader.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Shape.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Drawable.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Transformable.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/VertexArray.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/CircleShape.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RectangleShape.hpp \
- /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/ConvexShape.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Sprite.hpp \
  /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Text.hpp \
- /home/kaito/Escriptori/GitProjects/AndroidWhoIsTheMonster/jni/button.h \
+ jni/KillingSpree.hpp jni/Resources.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/InputSoundFile.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/Export.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/Listener.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/Music.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundStream.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundSource.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/AlResource.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/OutputSoundFile.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/Sound.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundBuffer.hpp \
+ /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/set \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundBufferRecorder.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundRecorder.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundFileFactory.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundFileFactory.inl \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundFileReader.hpp \
+ /home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundFileWriter.hpp \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/iostream \
  /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/istream \
- /home/kaito/Escriptori/GitProjects/AndroidWhoIsTheMonster/jni/Portada.hpp \
- /home/kaito/Escriptori/GitProjects/AndroidWhoIsTheMonster/jni/TextScreen.hpp \
- /home/kaito/Escriptori/GitProjects/AndroidWhoIsTheMonster/jni/MenuSelection.hpp
+ jni/Input.hpp \
+ /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/math.h \
+ /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/math.h \
+ jni/Timer.hpp jni/ReshufleScreen.hpp jni/DecissionScreen.hpp \
+ jni/RiperinoScreen.hpp jni/SignInScreen.hpp jni/Drawer.hpp \
+ jni/Calculator.hpp
 
 /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/time.h:
 
@@ -263,8 +287,6 @@
 
 /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/malloc.h:
 
-/home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/monetary.h:
-
 /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/cstdio:
 
 /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/cwchar:
@@ -310,6 +332,8 @@
 /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/cassert:
 
 /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/assert.h:
+
+/home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/atomic:
 
 /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/stdexcept:
 
@@ -381,6 +405,10 @@
 
 /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/asm/sigcontext.h:
 
+/home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/sys/ucontext.h:
+
+/home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/sys/user.h:
+
 /home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/sched.h:
 
 /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/functional:
@@ -401,11 +429,15 @@
 
 /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/bitset:
 
+/home/kaito/android/ndk/sources/sfml/include/SFML/System/FileInputStream.hpp:
+
 /home/kaito/android/ndk/sources/sfml/include/SFML/System/InputStream.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/System/NonCopyable.hpp:
 
 /home/kaito/android/ndk/sources/sfml/include/SFML/System/Lock.hpp:
 
-/home/kaito/android/ndk/sources/sfml/include/SFML/System/NonCopyable.hpp:
+/home/kaito/android/ndk/sources/sfml/include/SFML/System/MemoryInputStream.hpp:
 
 /home/kaito/android/ndk/sources/sfml/include/SFML/System/Mutex.hpp:
 
@@ -475,15 +507,35 @@
 
 /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Export.hpp:
 
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Color.hpp:
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/CircleShape.hpp:
 
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Font.hpp:
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Shape.hpp:
 
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Glyph.hpp:
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Drawable.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RenderStates.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Transform.hpp:
 
 /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Rect.hpp:
 
 /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Rect.inl:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Transformable.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/VertexArray.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Vertex.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Color.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/PrimitiveType.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/ConvexShape.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Font.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Glyph.hpp:
 
 /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Texture.hpp:
 
@@ -493,50 +545,82 @@
 
 /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/__tree:
 
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RenderStates.hpp:
-
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Transform.hpp:
-
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RenderTexture.hpp:
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RectangleShape.hpp:
 
 /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RenderTarget.hpp:
 
 /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/View.hpp:
 
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/PrimitiveType.hpp:
-
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Vertex.hpp:
+/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RenderTexture.hpp:
 
 /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RenderWindow.hpp:
 
 /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Shader.hpp:
 
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Shape.hpp:
-
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Drawable.hpp:
-
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Transformable.hpp:
-
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/VertexArray.hpp:
-
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/CircleShape.hpp:
-
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/RectangleShape.hpp:
-
-/home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/ConvexShape.hpp:
-
 /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Sprite.hpp:
 
 /home/kaito/android/ndk/sources/sfml/include/SFML/Graphics/Text.hpp:
 
-/home/kaito/Escriptori/GitProjects/AndroidWhoIsTheMonster/jni/button.h:
+jni/KillingSpree.hpp:
+
+jni/Resources.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/InputSoundFile.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/Export.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/Listener.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/Music.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundStream.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundSource.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/AlResource.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/OutputSoundFile.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/Sound.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundBuffer.hpp:
+
+/home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/set:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundBufferRecorder.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundRecorder.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundFileFactory.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundFileFactory.inl:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundFileReader.hpp:
+
+/home/kaito/android/ndk/sources/sfml/include/SFML/Audio/SoundFileWriter.hpp:
 
 /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/iostream:
 
 /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/libcxx/include/istream:
 
-/home/kaito/Escriptori/GitProjects/AndroidWhoIsTheMonster/jni/Portada.hpp:
+jni/Input.hpp:
 
-/home/kaito/Escriptori/GitProjects/AndroidWhoIsTheMonster/jni/TextScreen.hpp:
+/home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/math.h:
 
-/home/kaito/Escriptori/GitProjects/AndroidWhoIsTheMonster/jni/MenuSelection.hpp:
+/home/kaito/android/ndk/platforms/android-9/arch-arm/usr/include/math.h:
+
+jni/Timer.hpp:
+
+jni/ReshufleScreen.hpp:
+
+jni/DecissionScreen.hpp:
+
+jni/RiperinoScreen.hpp:
+
+jni/SignInScreen.hpp:
+
+jni/Drawer.hpp:
+
+jni/Calculator.hpp:

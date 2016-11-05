@@ -16,20 +16,20 @@
 //TODO: Hacerlo mas caixa-like
 class Calculator : public sf::Drawable, public sf::Transformable {
 public:
-  Calculator() {
-    _passwd.setFont(Resources::font);
-    _passwd.setFillColor(sf::Color::Black);
-    _passwd.setOutlineColor(sf::Color::White);
-    _passwd.setOutlineThickness(1);
+  Calculator(Resources& res) {
+    _passwd.setFont(res.font);
+    _passwd.setColor(sf::Color::Black);
+    //_passwd.setOutlineColor(sf::Color::White);
+    //_passwd.setOutlineThickness(1);
     for (int i = 0; i < 10; ++i) {
-      _numbers[i].setFont(Resources::font);
+      _numbers[i].setFont(res.font);
       _numbers[i].setString(std::to_string(i+1));
       int x = (i)%3 * SIZEX;
       int y = (i)/3 * SIZEY;
       _numbers[i].setOrigin(16, 22);
       _numbers[i].setPosition(x + SIZEX/2.f, y+SIZEY/2.f + 40);
-      _numbers[i].setOutlineColor(sf::Color::Black);
-      _numbers[i].setOutlineThickness(3);
+      //_numbers[i].setOutlineColor(sf::Color::Black);
+      //_numbers[i].setOutlineThickness(3);
       _buttons[i].setPosition(x, y + 40);
       _buttons[i].setSize({SIZEX-(5*2), SIZEY-(5*2)});
       _buttons[i].setFillColor(GRAY);

@@ -5,30 +5,64 @@
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#define TEXTUREPATH "res/pics/"
 
 class Resources {
 public:
-    static void load();
-    static sf::Font font;
+    
+    
+sf::Font font;
 
-    static sf::Texture OKButton;
-    static sf::Texture PressedOKButton;
+sf::Texture OKButton;
+sf::Texture PressedOKButton;
 
-    static sf::Texture Button;
-    static sf::Texture ButtonPress;
+sf::Texture Button;
+sf::Texture ButtonPress;
     
-    static sf::Texture Riperino;
+sf::Texture Riperino;
     
-    static sf::Texture LeftArrow;
-    static sf::Texture RightArrow;
+sf::Texture LeftArrow;
+sf::Texture RightArrow;
     
-    static sf::Texture Spy;
+sf::Texture Spy;
     
-    static std::vector<int> PlayerRol;
-    static std::vector<int> PlayerIndex;
-    static std::vector<sf::Texture> PlayerTextures;
+std::vector<int> PlayerRol;
+std::vector<int> PlayerIndex;
+std::vector<sf::Texture> PlayerTextures;
+
+      
+        void load(){
+            //...loadFromFile();
+            if (!font.loadFromFile("res/fonts/font.otf")) std::cout << "penefont" << std::endl;
+
+            if(! OKButton.loadFromFile (TEXTUREPATH+std::string("buttons/OKButton.png")) ) std::cout << "okbutton not loaded" << std::endl;
+            if(! PressedOKButton.loadFromFile (TEXTUREPATH+std::string("buttons/PressedOKButton.png")) ) std::cout << "pressedokbutton not loaded" << std::endl;
+
+            if(! Button.loadFromFile (TEXTUREPATH+std::string("buttons/Button.png")) ) std::cout << "startbuton not loaded" << std::endl;
+            if(! ButtonPress.loadFromFile (TEXTUREPATH+std::string("buttons/ButtonPress.png")) ) std::cout << "startbuttonpress not loaded" << std::endl;
+
+            if(! Riperino.loadFromFile (TEXTUREPATH+std::string("riperino.png")) ) std::cout << "riperino not loaded" << std::endl;
+
+            if(! LeftArrow.loadFromFile (TEXTUREPATH+std::string("arrowleft.png")) ) std::cout << "arrowleft not loaded" << std::endl;
+            if(! RightArrow.loadFromFile (TEXTUREPATH+std::string("arrowright.png")) ) std::cout << "arrowright not loaded" << std::endl;
+
+            if(! Spy.loadFromFile (TEXTUREPATH+std::string("spy.png")) ) std::cout << "spy not loaded" << std::endl;
+            
+            PlayerTextures.push_back(Spy);
+            PlayerTextures.push_back(Riperino);
+            PlayerTextures.push_back(Button);
+            
+            PlayerIndex.push_back(0);
+            PlayerIndex.push_back(1);
+            PlayerIndex.push_back(2);
+            
+            PlayerRol.push_back(0);
+            PlayerRol.push_back(1);
+            PlayerRol.push_back(2);
+        }
     
-    //static sf::Texture ...
+    //  sf::Texture ...
 private:
 
 };
