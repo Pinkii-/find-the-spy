@@ -40,7 +40,7 @@ public:
 
   void update(float) {
     if (Input::isClicked) {
-      sf::Vector2f localPosition = sf::Vector2f(Input::pos) - getPosition();
+      sf::Vector2f localPosition = sf::Vector2f(Input::pos) - getPosition() + getOrigin();
       localPosition.x /= getScale().x;
       localPosition.y /= getScale().y;
       if (sf::FloatRect(0,0,FRAMESIZEX, FRAMESIZEY).contains(localPosition)) {
