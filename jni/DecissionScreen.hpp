@@ -84,7 +84,7 @@ public:
             icon.scale(window->getSize().x/4/icon.getGlobalBounds().width, window->getSize().x/4/icon.getGlobalBounds().width);
             icon.setPosition(window->getSize().x/2 - icon.getGlobalBounds().width/2, window->getSize().y/2 - icon.getGlobalBounds().height/2);
             
-            avatar.scale(window->getSize().x/4/avatar.getGlobalBounds().width, window->getSize().x/4/avatar.getGlobalBounds().width);
+            avatar.scale(window->getSize().x/3/avatar.getGlobalBounds().width, window->getSize().x/3/avatar.getGlobalBounds().width);
             avatar.setPosition(window->getSize().x/2 - avatar.getGlobalBounds().width/2, 0);
             
             

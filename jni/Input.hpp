@@ -6,18 +6,18 @@
 class Input {
 public:
   static void update(sf::RenderWindow& window) {
-//#ifdef __linux__
+// #ifdef __linux__
 //    pos = sf::Mouse::getPosition(window);
-//#else
+// #else
     if(sf::Touch::isDown(0))
         pos = sf::Touch::getPosition(0);
-//#endif
+// #endif
     wasClicked = isClicked;
-//#ifdef __linux__
+// #ifdef __linux__
 //    isClicked = sf::Mouse::isButtonPressed(sf::Mouse::Button::Left);
-//#else
+// #else
     isClicked = sf::Touch::isDown(0);
-//#endif
+// #endif
     cryMeARivered = isClicked && !wasClicked;
     hasBeenReleased = !isClicked && wasClicked;
     

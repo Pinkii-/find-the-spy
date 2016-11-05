@@ -209,7 +209,9 @@
  /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/RiperinoScreen.hpp \
  /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/SignInScreen.hpp \
  /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Drawer.hpp \
- /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Calculator.hpp
+ /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Calculator.hpp \
+ /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/AutenticateScreen.hpp \
+ /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/InitialScreen.hpp
 
 /home/kaito/android/ndk/sources/cxx-stl/llvm-libc++/../../android/support/include/time.h:
 
@@ -630,3 +632,7 @@
 /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Drawer.hpp:
 
 /home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/Calculator.hpp:
+
+/home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/AutenticateScreen.hpp:
+
+/home/kaito/Escriptori/GitProjects/findSpy/find-the-spy/jni/InitialScreen.hpp:

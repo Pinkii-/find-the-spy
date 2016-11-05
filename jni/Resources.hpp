@@ -54,13 +54,13 @@ std::vector<sf::Texture> PlayerTextures;
             //PlayerTextures.push_back(Riperino);
 //             PlayerTextures.push_back(Button);
             
-            PlayerIndex.push_back(0);
+           /* PlayerIndex.push_back(0);
             PlayerIndex.push_back(1);
             PlayerIndex.push_back(2);
             
             PlayerRol.push_back(0);
             PlayerRol.push_back(1);
-            PlayerRol.push_back(2);
+            PlayerRol.push_back(2);*/
         }
     
     //  sf::Texture ...

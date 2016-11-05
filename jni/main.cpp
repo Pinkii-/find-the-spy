@@ -11,16 +11,16 @@
 #include "DecissionScreen.hpp"
 #include "RiperinoScreen.hpp"
 #include "SignInScreen.hpp"
-
+#include "AutenticateScreen.hpp"
+#include "InitialScreen.hpp"
 #include "Calculator.hpp"
 
 int main(int argc, const char* argv[]){
-    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yuegal");
+    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "NoCalPlorar");
     srand (time(NULL));
 
     Resources resources;
     resources.load();
-//    resources.load();
     
     Calculator calc(resources);
     calc.setPosition(window.getSize().x/2, 100);
@@ -39,16 +39,30 @@ int main(int argc, const char* argv[]){
             }
         }
 
-        int playerAmount = resources.PlayerIndex.size();
-        //InitialScreen initialScreen;
-        //playerAmount = initialScreen.run();
-
+        int playerAmount;// = resources.PlayerIndex.size();
+        InitialScreen initialScreen;
+        playerAmount = initialScreen.run(&window, 2, resources);
+        for(int i = 0; i < playerAmount; ++i){
+            resources.PlayerIndex.push_back(i);
+            resources.PlayerRol.push_back(0);
+        }
+        
+        int spyAmount = playerAmount/2.5;
+        
+        while(spyAmount > 0){
+            int candidate = rand()%playerAmount;
+            if(resources.PlayerRol[resources.PlayerIndex[candidate]] != 1){
+                resources.PlayerRol[resources.PlayerIndex[candidate]] = 1;
+                --spyAmount;
+            }
+        }
+        
          SignInScreen signInScreen;
          for(int i = 0; i < playerAmount; ++i){
              signInScreen.initializePlayer(window, i, resources);
          }
 
-//         AutenticateScreen autenticateScreen;
+        AutenticateScreen autenticateScreen;
 
         DecissionScreen decissionScreen;
 
@@ -64,7 +78,7 @@ int main(int argc, const char* argv[]){
         while(playing){
 
             for(int i = 0; i < playerAmount; ++i){
-//                 autenticateScreen.autenticate(i);
+                autenticateScreen.run(&window, i, resources);
                 decissionScreen.run(&window, i, resources);
             }
 
@@ -72,7 +86,7 @@ int main(int argc, const char* argv[]){
 
             std::vector<int> kills(playerAmount,0);
             for(int i = 0; i < playerAmount; ++i){
-//                 autenticateScreen.autenticate(i);
+                autenticateScreen.run(&window, i, resources);
                 int victim = killingSpreeScreen.run(&window, i, resources);
                 if(victim >= 0) ++kills[victim];
             }

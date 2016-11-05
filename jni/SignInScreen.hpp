@@ -52,9 +52,12 @@ public:
             nextButton.setTexture(res.OKButton);    
         }
         if(!Input::isClicked && Input::wasClicked && nextButton.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
-            res.PlayerTextures.push_back(drawer._texture);    
-            res.Passwords.push_back(calc._passwd.getString());
-            return;
+            if(calc._passwd.getString() != ""){
+                res.PlayerTextures.push_back(drawer._texture);    
+                res.Passwords.push_back(calc._passwd.getString());
+                std::cout << std::string(calc._passwd.getString()) << std::endl;
+                return;
+            }
         }
 
       window.clear(sf::Color::Black);
