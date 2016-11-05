@@ -9,6 +9,7 @@
 #include "Timer.hpp"
 #include "ReshufleScreen.hpp"
 #include "DecissionScreen.hpp"
+#include "RiperinoScreen.hpp"
 
 int main(int argc, const char* argv[]){
     sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yuegal");
@@ -43,7 +44,7 @@ int main(int argc, const char* argv[]){
         Timer timerScreen;
         KillingSpree killingSpreeScreen;
         
-//         DeathScreen deathScreen;
+        RiperinoScreen riperinoScreen;
 
         ReshuffleScreen reshuffleScreen;
         
@@ -79,12 +80,12 @@ int main(int argc, const char* argv[]){
                 }
             }            
             
-//             deathScreen.show(mostVoted);
+            riperinoScreen.run(&window,mostVoted);
             
-              Resources::PlayerIndex.erase(Resources::PlayerIndex.begin() + mostVoted);
-              --playerAmount;
-              
-              reshuffleScreen.run(&window);
+            Resources::PlayerIndex.erase(Resources::PlayerIndex.begin() + mostVoted);
+            --playerAmount;
+
+            reshuffleScreen.run(&window);
         }
     }
 }

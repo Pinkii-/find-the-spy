@@ -85,7 +85,7 @@ public:
             icon.setPosition(window->getSize().x/2 - icon.getGlobalBounds().width/2, window->getSize().y/2 - icon.getGlobalBounds().height/2);
             
             avatar.scale(window->getSize().x/avatar.getGlobalBounds().width, window->getSize().x/avatar.getGlobalBounds().width);
-            avatar.setPosition(window->getSize().x/2 - avatar.getGlobalBounds().width/2, window->getSize().y/2 - avatar.getGlobalBounds().height/2);
+            avatar.setPosition(window->getSize().x/2 - avatar.getGlobalBounds().width/2, 0);
             
             
             Input::update(*window);
