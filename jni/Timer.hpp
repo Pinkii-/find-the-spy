@@ -61,7 +61,7 @@ public:
             
             t.setString(myToString(min)+":"+myToString(sec));
 
-            t.scale(window->getSize().x/t.getGlobalBounds().width/2, window->getSize().x/t.getGlobalBounds()/2.width);
+            t.scale(window->getSize().x/2/t.getGlobalBounds().width, window->getSize().x/2/t.getGlobalBounds().width);
             t.setPosition(window->getSize().x/2 - t.getGlobalBounds().width/2, window->getSize().y/2 - t.getGlobalBounds().height/2);
             
             s.scale(window->getSize().x/4/s.getGlobalBounds().width, window->getSize().x/4/s.getGlobalBounds().width);
