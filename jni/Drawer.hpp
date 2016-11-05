@@ -67,8 +67,8 @@ public:
     icon.setPosition(10, 10);
     _frame.setPosition(10,10);
     _renderTexture.clear(sf::Color::Black);
-    _renderTexture.draw(icon);
     _renderTexture.draw(_frame);
+    _renderTexture.draw(icon);
     _renderTexture.display();
     return _renderTexture.getTexture();
   }
