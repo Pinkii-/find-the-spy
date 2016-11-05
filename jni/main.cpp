@@ -12,9 +12,15 @@
 #include "RiperinoScreen.hpp"
 #include "SignInScreen.hpp"
 
+#include "Calculator.hpp"
+
 int main(int argc, const char* argv[]){
     sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yuegal");
     srand (time(NULL));
+
+    Calculator calc;
+    calc.setPosition(window.getSize().x/2, 100);
+    calc.setOrigin(SIZEX*1.5, 0);
 
     sf::Clock clock;
     while (window.isOpen()) {
@@ -28,6 +34,19 @@ int main(int argc, const char* argv[]){
                 break;
             }
         }
+
+        Input::update(window);
+        calc.update(deltaTime);
+
+        window.clear(sf::Color::Black);
+
+        window.draw(calc);
+
+        window.display();
+      }
+    }
+  /*
+
 
         int playerAmount = 1;
         //InitialScreen initialScreen;
@@ -90,4 +109,4 @@ int main(int argc, const char* argv[]){
 
         }
     }
-}
+}*/
