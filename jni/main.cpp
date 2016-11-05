@@ -43,10 +43,10 @@ int main(int argc, const char* argv[]){
         //InitialScreen initialScreen;
         //playerAmount = initialScreen.run();
 
-//         SignInScreen signInScreen;
-//         for(int i = 0; i < playerAmount; ++i){
-//             signInScreen.initializePlayer(window, i);
-//         }
+         SignInScreen signInScreen;
+         for(int i = 0; i < playerAmount; ++i){
+             signInScreen.initializePlayer(window, i, resources);
+         }
 
 //         AutenticateScreen autenticateScreen;
 

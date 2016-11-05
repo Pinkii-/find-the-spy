@@ -10,6 +10,8 @@ public:
   void initializePlayer(sf::RenderWindow& window, int index, Resources& res) {
     float offset = 40;
 
+    sf::Sprite nextButton;
+    nextButton.setTexture(res.OKButton);
     Drawer drawer(_colors[index]);
     drawer.setPosition(window.getSize().x/2, offset);
     drawer.setOrigin(100, 0);
@@ -39,12 +41,26 @@ public:
       Input::update(window);
       calc.update(deltaTime);
       drawer.update(deltaTime);
+      
+      nextButton.scale(window.getSize().x/8/nextButton.getGlobalBounds().width, window.getSize().x/8/nextButton.getGlobalBounds().width);
+      nextButton.setPosition(window.getSize().x/2 - nextButton.getGlobalBounds().width/2, window.getSize().y - nextButton.getGlobalBounds().height);
+      
+
+        if(Input::isClicked && nextButton.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
+                nextButton.setTexture(res.PressedOKButton);
+        }
+        else {
+            nextButton.setTexture(res.OKButton);    
+        }
+        if(!Input::isClicked && Input::wasClicked && nextButton.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
+                return;
+        }
 
       window.clear(sf::Color::Black);
 
       window.draw(drawer);
       window.draw(calc);
-
+      window.draw(nextButton);
       window.display();
     }
 
