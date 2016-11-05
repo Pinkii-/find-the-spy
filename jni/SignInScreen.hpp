@@ -70,7 +70,7 @@ public:
 
   }
 private:
-  sf::Color _colors[4] = {sf::Color::Blue, sf::Color::Green, sf::Color::Cyan, sf::Color::Magenta};
+  sf::Color _colors[10] = {sf::Color::Blue, sf::Color::Green, sf::Color::Cyan, sf::Color::Magenta, sf::Color::Red, sf::Color::Yellow, sf::Color(120,10,255), sf::Color(180,40,55), sf::Color(2,10,200), sf::Color(10,10,20)};
 };
 
 #endif
