@@ -17,6 +17,8 @@
 
 int main(int argc, const char* argv[]){
     sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "NoCalPlorar");
+    window.setFramerateLimit(60);
+    window.setVerticalSyncEnabled(true); 
     srand (time(NULL));
 
     Resources resources;

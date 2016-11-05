@@ -50,24 +50,23 @@ float msin(float x){return cos(x-1.570796326794);}
             players[i].setOrigin(players[i].getLocalBounds().width/2,
                                  players[i].getLocalBounds().height/2);
         }
-        
         sf::Vector2f center(window->getSize().x/2, window->getSize().y/2);
         float radi = window->getSize().x/4;
         
-        float angle = 360/players.size();
+        float angle = -360/float(players.size());
         
-            std::cout << "le pos" << std::endl;
+            //std::cout << "le pos" << std::endl;
         for(size_t i = 0; i < players.size(); ++i){
-            float concreteAngle = angle*static_cast<float>(i);
+            float concreteAngle = (int(angle*i) +360 )%360;
             players[i].setScale(
                 (window->getSize().x/5)/players[i].getGlobalBounds().width, 
                 (window->getSize().x/5)/players[i].getGlobalBounds().width);
             
             players[i].setPosition(
                 window->getSize().x/2 + mcos(concreteAngle*0.0174532925)*radi, 
-                window->getSize().y/2 + msin(concreteAngle*0.0174532925)*radi);
-                std::cout << players[i].getPosition().x << " , " << players[i].getPosition().y << std::endl;
-        }
+                window->getSize().y/2 - msin(concreteAngle*0.0174532925)*radi);
+                //std::cout << players[i].getPosition().x << " , " << players[i].getPosition().y << std::endl;
+           }
         
         
         while(open){

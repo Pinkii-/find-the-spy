@@ -71,7 +71,7 @@ public:
             
             if(!Input::isClicked && Input::wasClicked && s.getGlobalBounds().contains(sf::Vector2f(Input::pos.x,Input::pos.y))){
                 if(calc._passwd.getString() == res.Passwords[res.PlayerIndex[player]]) return;
-                else std::cout << std::string(calc._passwd.getString()) << " vs " << res.Passwords[res.PlayerIndex[player]] << std::endl;
+                //else std::cout << std::string(calc._passwd.getString()) << " vs " << res.Passwords[res.PlayerIndex[player]] << std::endl;
             }
             
             if(time > 100) return;

@@ -62,17 +62,17 @@ public:
             players[i].setTexture(res.PlayerTextures[res.PlayerIndex[i]]);
         }
         
-        float angle = 360/players.size();
+        float angle = -360/float(players.size());
         
         for(size_t i = 0; i < players.size(); ++i){
-            float concreteAngle = angle*i;
+            float concreteAngle = (int(angle*i) +360 )%360;
             players[i].setScale(
                 (window->getSize().x/5)/players[i].getGlobalBounds().width, 
                 (window->getSize().x/5)/players[i].getGlobalBounds().width);
             
             players[i].setPosition(
                 window->getSize().x/2 + mcos(concreteAngle*0.0174532925)*radi, 
-                window->getSize().y/2 + msin(concreteAngle*0.0174532925)*radi);
+                window->getSize().y/2 - msin(concreteAngle*0.0174532925)*radi);
         }
         
         
